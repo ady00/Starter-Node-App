@@ -48,6 +48,7 @@ userSchema.pre('save', async function save(next) {
 /**
  * Helper method for validating user's password.
  */
+
 userSchema.methods.comparePassword = async function comparePassword(candidatePassword, cb) {
   try {
     cb(null, await bcrypt.verify(candidatePassword, this.password));
@@ -59,6 +60,7 @@ userSchema.methods.comparePassword = async function comparePassword(candidatePas
 /**
  * Helper method for getting user's gravatar.
  */
+
 userSchema.methods.gravatar = function gravatar(size) {
   if (!size) {
     size = 200;
